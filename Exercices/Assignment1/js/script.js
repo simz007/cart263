@@ -3,7 +3,8 @@
 /********************************************************************
 
 Pixel painter
-Pippin Barr
+
+Simon Zogheib
 
 A small DOM-based program for "painting" on div-based pixels.
 
@@ -13,7 +14,9 @@ A small DOM-based program for "painting" on div-based pixels.
 const NUM_PIXELS = 1000;
 const PIXEL_REVERT_DELAY = 1000;
 const DEFAULT_COLOR = 'black';
-// const PAINT_COLOR = 'white';
+
+//rotation variable
+let rotation = 0;
 
 // Set up our starting function for when the page loads
 window.onload = setup;
