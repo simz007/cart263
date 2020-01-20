@@ -79,3 +79,22 @@ function remove(e) {
   pixel.style.opacity = '0';
 
 }
+
+// rotate function
+// rotates all pixels on sreen after key is pressed
+function rotate(e) {
+// Get all the pixels
+  let pixels = document.getElementsByClassName('pixel');
+// update the rotation for all pixels
+  for (var i = 0; i < pixels.length; i++) {
+    pixels[i].style.transform = `rotate(${rotation}deg)`
+  }
+// right arrow pressed
+  if (e.keyCode === 39) {
+    rotation += 1;
+  }
+// left arrow pressed
+  if (e.keyCode === 37) {
+    rotation -= 1;
+  }
+}
