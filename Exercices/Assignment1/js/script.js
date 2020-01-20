@@ -36,6 +36,8 @@ function setup() {
     pixel.addEventListener('mouseover', paint);
     // add a click handler to the new element that calls the remove function
     pixel.addEventListener('click', remove);
+    // add a keydown handler that calls the rotate function
+    document.addEventListener('keydown', rotate);
     // Add the element to the body of the page
     document.body.appendChild(pixel);
   }
