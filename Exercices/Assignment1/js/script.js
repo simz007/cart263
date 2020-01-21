@@ -40,6 +40,8 @@ function setup() {
     pixel.addEventListener('click', remove);
     // add a keydown handler that calls the rotate function
     document.addEventListener('keydown', rotate);
+    // add a keydown handler that calls the typed function
+    document.addEventListener('keydown', typed);
     // Add the element to the body of the page
     document.body.appendChild(pixel);
   }
@@ -99,4 +101,9 @@ function rotate(e) {
   if (e.keyCode === 37) {
     rotation -= 1;
   }
+}
+
+// function that sets the currentKey to the keyCode pressed
+function typed(e) {
+  currentKey = e.keyCode;
 }
