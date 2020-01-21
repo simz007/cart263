@@ -18,6 +18,8 @@ const DEFAULT_COLOR = 'black';
 //rotation variable
 let rotation = 0;
 
+let currentKey = "";
+
 // Set up our starting function for when the page loads
 window.onload = setup;
 
