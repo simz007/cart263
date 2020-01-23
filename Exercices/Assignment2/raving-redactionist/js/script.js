@@ -19,6 +19,11 @@ const UPDATE_FREQUENCY = 500;
 // A place to store the jQuery selection of all spans
 let $spans;
 
+//Variables for number of secrets found and available
+let secretsFound ;
+let secretsTotal;
+
+
 // When the document is loaded we call the setup function
 $(document).ready(setup);
 
@@ -32,6 +37,9 @@ function setup() {
   $spans.on('click', spanClicked);
   // Set an interval of 500 milliseconds to update the state of the page
   setInterval(update, UPDATE_FREQUENCY);
+  // Calculate the total number of spans with the id (secret)
+  secretsTotal = $('.secret').length;
+  $('#findNum').text(secretsTotal);
 };
 
 // spanClicked()
