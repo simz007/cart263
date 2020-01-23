@@ -44,14 +44,13 @@ function setup() {
   $('.secret').on('mouseover', showSecret);
 
 
-
-
 };
 
 
 // showSecret function
 // higlights the found secrets in yellow and remoe the mouseover event so itdoesn't
-// count it everytime we go over it, and ads 1 to the total of secrets found
+// count it everytime we go over it, and ads 1 to the total of secrets found and
+// display it in the span with the (num) id
 
 function showSecret(){
    $(this).addClass('found');
