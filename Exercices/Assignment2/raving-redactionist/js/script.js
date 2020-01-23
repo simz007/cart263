@@ -40,7 +40,21 @@ function setup() {
   // Calculate the total number of spans with the id (secret)
   secretsTotal = $('.secret').length;
   $('#findNum').text(secretsTotal);
+  // mouseover event for elements with id (secret)
+  $('.secret').on('mouseover', showSecret);
+
 };
+
+
+// showSecret function
+
+function showSecret(){
+   $(this).addClass('found');
+
+
+
+
+}
 
 // spanClicked()
 //
