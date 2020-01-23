@@ -20,7 +20,7 @@ const UPDATE_FREQUENCY = 500;
 let $spans;
 
 //Variables for number of secrets found and available
-let secretsFound ;
+let secretsFound = 0 ;
 let secretsTotal;
 
 
@@ -43,15 +43,21 @@ function setup() {
   // mouseover event for elements with id (secret)
   $('.secret').on('mouseover', showSecret);
 
+
+
+
 };
 
 
 // showSecret function
+// higlights the found secrets in yellow and remoe the mouseover event so itdoesn't
+// count it everytime we go over it, and ads 1 to the total of secrets found
 
 function showSecret(){
    $(this).addClass('found');
-
-
+   $('.found').off('mouseover');
+   secretsFound += 1;
+   $('#num').text(secretsFound);
 
 
 }
