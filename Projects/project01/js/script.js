@@ -10,11 +10,16 @@ all the pieces will fall back out of place
 
 
 
-//sound variables
+//audio variables
+let gameSFX;
 
 
 
 $(document).ready(function(){
+
+  // adding audio files and looping it
+    gameSFX = new Audio('assets/sounds/good.mp3');
+    gameSFX.loop = true;
 
   //Custom cursor
   $('html').css('cursor','url(assets/images/cursor.png),auto');
@@ -23,7 +28,7 @@ $(document).ready(function(){
   $('#startText').on('click', function(){
     $('.Start').hide();
     $('.game').show();
-    // music.play();
+    gameSFX.play();
   });
 
 
