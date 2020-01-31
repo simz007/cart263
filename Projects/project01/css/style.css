@@ -44,7 +44,7 @@ body{
   height: 500px;
   margin-top: 100px;
   margin-bottom: 50px;
-  margin-left: 8%;
+  margin-left: 10%;
   font-size: 30px;
 
 }
@@ -71,5 +71,11 @@ body{
   font-size: 1.5em;
   font-family: 'Bowlby One SC', cursive;
   font-weight: 100;
+}
 
+.game{
+  width:100%;
+  /* display: grid;
+  grid-gap: 0px; */
+  display: none;
 }

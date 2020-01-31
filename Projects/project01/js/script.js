@@ -16,7 +16,15 @@ all the pieces will fall back out of place
 
 $(document).ready(function(){
 
+  //Custom cursor
+  $('html').css('cursor','url(assets/images/cursor.png),auto');
 
+//Hide Start screen, and show game screen on button click, and play the music
+  $('#startText').on('click', function(){
+    $('.Start').hide();
+    $('.game').show();
+    // music.play();
+  });
 
 
 
