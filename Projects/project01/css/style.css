@@ -23,7 +23,6 @@ body{
   font-family: 'Bowlby One SC', cursive;
   line-height: 1;
   font-weight: 300;
-
 }
 
 
@@ -46,7 +45,6 @@ body{
   margin-bottom: 50px;
   margin-left: 10%;
   font-size: 30px;
-
 }
 
 .introduction{
@@ -59,7 +57,6 @@ body{
   font-size: 30px;
   width: 500px;
   text-align: center;
-
 }
 
 #startText{
@@ -83,14 +80,12 @@ body{
   width: 50%;
   height: 100%;
   float: left;
-
 }
 
 .right{
   width: 50%;
   height: 100%;
   float: right;
-
 }
 
 #leftText{
@@ -102,7 +97,6 @@ body{
   font-family: 'Bowlby One SC', cursive;
   color: yellow;
   font-weight: 300;
-
 }
 
 .draggables{
@@ -115,8 +109,6 @@ body{
   background-color: red;
   display: flex;
   flex-wrap: wrap;
-
-
 }
 
 #draggable1{
@@ -129,7 +121,6 @@ background-color: yellow;
 width: 250px;
 height:250px;
 background-color: green;
-
 }
 
 #draggable3{
@@ -142,7 +133,6 @@ background-color: blue;
 width: 250px;
 height:250px;
 background-color: yellow;
-
 }
 
 .droppables{
@@ -152,37 +142,51 @@ background-color: yellow;
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: 10%;
-  background-color: red;
+  background-color:rgba(0,0,0,0.2); ;
   display: flex;
   flex-wrap: wrap;
 
-
+  border: solid 1px black;
 }
-
 
 
 #droppable1{
 width: 250px;
 height:250px;
-background-color: yellow;
+font-size: 60px;
+text-align: center;
+font-family: 'Bowlby One SC', cursive;
+font-weight: 300;
+align-items: center;
+
 }
 
 #droppable2{
 width: 250px;
 height:250px;
-background-color: green;
+font-size: 60px;
+text-align: center;
+font-family: 'Bowlby One SC', cursive;
+font-weight: 300;
 
 }
 
 #droppable3{
 width: 250px;
 height:250px;
-background-color: blue;
+font-size: 60px;
+text-align: center;
+font-family: 'Bowlby One SC', cursive;
+font-weight: 300;
+
 }
 
 #droppable4{
 width: 250px;
 height:250px;
-background-color: yellow;
+font-size: 60px;
+text-align: center;
+font-family: 'Bowlby One SC', cursive;
+font-weight: 300;
 
 }
