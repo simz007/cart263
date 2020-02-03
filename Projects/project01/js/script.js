@@ -90,7 +90,7 @@ $(document).ready(function() {
       // once again
 
       if (dropNum === 4) {
-      // move the draggables outside the droppable area with easeoutelastic animation
+        // move the draggables outside the droppable area with easeoutelastic animation
         dragged.position({
           my: "top+50px",
           //at the bottom of the window
@@ -98,14 +98,14 @@ $(document).ready(function() {
           of: window,
           //using a "easeOutElastic" easing
           using: function(pos) {
-          $(".drag").animate(pos, 900, "easeOutElastic");
-           }
+            $(".drag").animate(pos, 900, "easeOutElastic");
+          }
         });
 
         // play the Oh NO sound
         noSFX.play();
         // Open the dialog box
-       $( "#dialog" ).dialog();
+        $("#dialog").dialog();
         // Enable the dragging option to the draggables
         $(".drag").draggable("enable");
 
@@ -118,7 +118,7 @@ $(document).ready(function() {
     }
 
   });
-    //End of droppable elements
+  //End of droppable elements
 
 
 
