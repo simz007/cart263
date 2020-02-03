@@ -9,7 +9,7 @@ all the pieces will fall back out of place.
 This is inspired by a previous student project (Crapy NAils) by Dana Riachi
 ******************/
 
-
+let dropNum = 0
 
 //audio variables
 let gameSFX;
@@ -44,6 +44,8 @@ $(document).ready(function() {
     start: function(event, ui) {
       //detect superposition with the appropriate droppable element
       ui.helper.data('dropped', false);
+
+
     },
 
   });
@@ -64,9 +66,7 @@ $(document).ready(function() {
       // and that the draggable was dropped in the correct droppable
       ui.helper.data('dropped', true);
 
-      
 
-      //store dropped draggable in a variable
       let dragged = ui.draggable;
 
       //disable draggable so u cant drag it after it's dropped in appropriate droppable
@@ -78,9 +78,48 @@ $(document).ready(function() {
         at: "center",
         of: $(this)
       });
+
+
+      // keep track of how many draggables got droppedand add 1 each time
+      dropNum += 1;
+
+
+      //function that tracks the number of droppables and once it gets to 4
+      // it animates the draggables outside of the droppables and enable dragging
+      // once again
+
+      if (dropNum === 4) {
+
+      // move the draggables outside the droppable area with easeoutelastic animation
+        $(".drag").position({
+          my: "top+50px",
+          //at the bottom of the window
+          at: "center-200",
+          of: window,
+          //using a "easeOutElastic" easing
+          using: function(pos) {
+          $(".drag").animate(pos, 900, "easeOutElastic");
+           }
+        });
+
+        // Enable the dragging option to the draggables
+        $(".drag").draggable("enable");
+
+        // Reset the dropped number to 0
+        dropNum = 0;
+
+
+
+      }
+
     }
+
+
+
+
   });
-  //End of droppable elements
+  //
+
 
 
 });
