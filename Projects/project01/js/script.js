@@ -82,17 +82,14 @@ $(document).ready(function() {
         of: $(this)
       });
 
-
       // keep track of how many draggables got droppedand add 1 each time
       dropNum += 1;
-
 
       //function that tracks the number of droppables and once it gets to 4
       // it animates the draggables outside of the droppables and enable dragging
       // once again
 
       if (dropNum === 4) {
-
       // move the draggables outside the droppable area with easeoutelastic animation
         dragged.position({
           my: "top+50px",
@@ -107,8 +104,11 @@ $(document).ready(function() {
 
         // play the Oh NO sound
         noSFX.play();
+        // Open the dialog box
+       $( "#dialog" ).dialog();
         // Enable the dragging option to the draggables
         $(".drag").draggable("enable");
+
 
         // Reset the dropped number to 0
         dropNum = 0;
