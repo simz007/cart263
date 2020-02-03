@@ -13,6 +13,7 @@ let dropNum = 0
 
 //audio variables
 let gameSFX;
+let noSFX;
 
 
 
@@ -21,6 +22,8 @@ $(document).ready(function() {
   // adding audio files and looping it
   gameSFX = new Audio('assets/sounds/good.mp3');
   gameSFX.loop = true;
+
+  noSFX = new Audio('assets/sounds/no.mp3');
 
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
@@ -91,10 +94,10 @@ $(document).ready(function() {
       if (dropNum === 4) {
 
       // move the draggables outside the droppable area with easeoutelastic animation
-        $(".drag").position({
+        dragged.position({
           my: "top+50px",
           //at the bottom of the window
-          at: "center-200",
+          at: "center-300",
           of: window,
           //using a "easeOutElastic" easing
           using: function(pos) {
@@ -102,23 +105,20 @@ $(document).ready(function() {
            }
         });
 
+        // play the Oh NO sound
+        noSFX.play();
         // Enable the dragging option to the draggables
         $(".drag").draggable("enable");
 
         // Reset the dropped number to 0
         dropNum = 0;
 
-
-
       }
 
     }
 
-
-
-
   });
-  //
+    //End of droppable elements
 
 
 
