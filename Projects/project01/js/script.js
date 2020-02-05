@@ -69,9 +69,8 @@ $(document).ready(function() {
       // and that the draggable was dropped in the correct droppable
       ui.helper.data('dropped', true);
 
-
       let dragged = ui.draggable;
-
+      
       //disable draggable so u cant drag it after it's dropped in appropriate droppable
       dragged.draggable("disable");
 
