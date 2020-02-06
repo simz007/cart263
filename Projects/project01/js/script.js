@@ -36,25 +36,14 @@ $(document).ready(function() {
   });
 
 
-
   //Setting up draggable elements
 
   $(".drag").draggable({
     //contained in window
     containment: "window",
     revert: 'invalid',
-    //called when dragging starts
-    start: function(event, ui) {
-      //detect superposition with the appropriate droppable element
-      ui.helper.data('dropped', false);
-
-
-    },
 
   });
-  //End of draggable elements
-
-
 
   //Setting up droppable elements
 
@@ -65,17 +54,12 @@ $(document).ready(function() {
     },
     //called when the appropriate draggable has been received
     drop: function(event, ui) {
-      //notify the ui helper that the appropriate function is performed
-      // and that the draggable was dropped in the correct droppable
-      ui.helper.data('dropped', true);
 
-      let dragged = ui.draggable;
-      
       //disable draggable so u cant drag it after it's dropped in appropriate droppable
-      dragged.draggable("disable");
+      ui.draggable.draggable("disable");
 
       //put the draggable in the center of droppable
-      dragged.position({
+      ui.draggable.position({
         my: "center",
         at: "center",
         of: $(this)
@@ -84,41 +68,48 @@ $(document).ready(function() {
       // keep track of how many draggables got droppedand add 1 each time
       dropNum += 1;
 
-      //function that tracks the number of droppables and once it gets to 4
-      // it animates the draggables outside of the droppables and enable dragging
-      // once again
+      //tracks the number of droppables and once it gets to 4
+      // it calls the reset function
 
       if (dropNum === 4) {
-        // move the draggables outside the droppable area with easeoutelastic animation
-        dragged.position({
-          my: "top+50px",
-          //at the bottom of the window
-          at: "center-300",
-          of: window,
-          //using a "easeOutElastic" easing
-          using: function(pos) {
-            $(".drag").animate(pos, 900, "easeOutElastic");
-          }
-        });
-
-        // play the Oh NO sound
-        noSFX.play();
-        // Open the dialog box
-        $("#dialog").dialog();
-        // Enable the dragging option to the draggables
-        $(".drag").draggable("enable");
-
-
-        // Reset the dropped number to 0
-        dropNum = 0;
-
+        reset(event, ui);
       }
-
     }
 
   });
   //End of droppable elements
 
-
-
 });
+
+
+// Reset function that once all the draggables are dropped, it will animate them out of the
+// dropable divs with an animation and change their position,
+// play the Oh no sound, open the dialog box and re enable the dragging
+
+function reset(event, ui) {
+  // move the draggables outside the droppable area with easeoutelastic animation
+  ui.draggable.position({
+    my: "top+50px",
+    //at the bottom of the window
+    at: "center-300",
+    of: window,
+    //using a "easeOutElastic" easing
+    using: function(pos) {
+      $(".drag").animate(pos, 900, "easeOutElastic");
+    }
+  });
+
+  // play the Oh NO sound
+  noSFX.play();
+  // Open the dialog box
+  $("#dialog").dialog({
+    width: 400,
+    height: 400
+  });
+  // Enable the dragging option to the draggables
+  $(".drag").draggable("enable");
+
+
+  // Reset the dropped number to 0
+  dropNum = 0;
+}
