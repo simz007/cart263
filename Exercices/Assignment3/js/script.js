@@ -173,6 +173,9 @@ $(document).ready(setup);
 // We just start a new round right away!
 function setup() {
   newRound();
+
+
+
 }
 
 // newRound()
@@ -274,4 +277,30 @@ function handleGuess() {
 function getRandomElement(array) {
   let element = array[Math.floor(Math.random() * array.length)];
   return element;
+}
+
+
+if (annyang) {
+  var commands = {
+    'I give up': function() {
+      $('.guess').each(function () {
+               if ($(this).text() === $correctButton.text()) {
+                 $(this).effect('shake');
+               }
+             });
+             console.log("NOOOOO");
+
+     // Remove the old guesses.
+        setTimeout(function() {
+        $('.guess').remove();} , 1000);
+    // Start a new round
+    setTimeout(newRound,1000);
+  },
+      }
+
+
+  annyang.addCommands(commands);
+
+  annyang.start();
+
 }
