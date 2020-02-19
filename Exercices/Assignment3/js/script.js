@@ -296,6 +296,10 @@ if (annyang) {
     // Start a new round
     setTimeout(newRound,1000);
   },
+
+  'Say it again': function() {
+      sayBackwards($correctButton.text());
+    },
       }
 
 
