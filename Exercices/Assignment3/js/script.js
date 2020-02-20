@@ -298,7 +298,7 @@ if (annyang) {
       }, 1000);
       // Start a new round
       setTimeout(newRound, 1000);
-
+      //Edit the score and dislay it
       score = 0;
       displayScore();
     },
@@ -318,7 +318,9 @@ if (annyang) {
         // Add 1 to the score
         score += 1;
 
-      } else {
+      }
+
+      else {
         $('.guess').each(function() {
           if ($(this).text() === answer.toLowerCase()) {
             $(this).effect('shake');
