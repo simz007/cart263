@@ -3,7 +3,7 @@
 /*****************
 
 Slamina
-rraB nippiP
+Simon Zogheib
 
 A simple guessing game based on voice synthesis. The computer reads out an
 animal name, but it reads it backwards. The user selects the animal they
@@ -165,6 +165,9 @@ let buttons = [];
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
 
+// score variable
+let score = 0;
+
 // Get setup!
 $(document).ready(setup);
 
@@ -173,7 +176,7 @@ $(document).ready(setup);
 // We just start a new round right away!
 function setup() {
   newRound();
-
+  displayScore();
 
 
 }
@@ -204,17 +207,7 @@ function newRound() {
 //
 // Uses ResponsiveVoice to say the specified text backwards!
 function sayBackwards(text) {
-  // We create a reverse version of the name by:
-  // 1. using .split('') to split the string into an array with each character
-  // as a separate element.
-  // e.g. "bat" -> ['b','a','t']
-  // 2. using .reverse() on the resulting array to create a reverse version
-  // e.g. ['b','a','t'] -> ['t','a','b']
-  // 3. using .join('') on the resulting array to create a string version of the array
-  // with each element forming the string (joined together with nothing in between)
-  // e.g. ['t','a','b'] -> "tab"
-  // (We do this all in one line using "chaining" because .split() returns an array for
-  // for .reverse() to work on, and .reverse() returns an array for .join() to work on.)
+
   let backwardsText = text.split('').reverse().join('');
 
   // Set some random numbers for the voice's pitch and rate parameters for a bit of fun
@@ -262,13 +255,22 @@ function handleGuess() {
     $('.guess').remove();
     // Start a new round
     setTimeout(newRound, 1000);
-  }
-  else {
+    score += 1;
+  } else {
     // Otherwise they were wrong, so shake the clicked button
     $(this).effect('shake');
     // And say the correct animal again to "help" them
     sayBackwards($correctButton.text());
+    score = 0;
   }
+
+  //display scroe
+  displayScore();
+}
+
+
+function displayScore() {
+  $('#scorenum').text(score);
 }
 
 // getRandomElement(array)
@@ -283,24 +285,52 @@ function getRandomElement(array) {
 if (annyang) {
   var commands = {
     'I give up': function() {
-      $('.guess').each(function () {
-               if ($(this).text() === $correctButton.text()) {
-                 $(this).effect('shake');
-               }
-             });
-             console.log("NOOOOO");
+      $('.guess').each(function() {
+        if ($(this).text() === $correctButton.text()) {
+          $(this).effect('shake');
+        }
+      });
+      console.log("NOOOOO");
 
-     // Remove the old guesses.
-        setTimeout(function() {
-        $('.guess').remove();} , 1000);
-    // Start a new round
-    setTimeout(newRound,1000);
-  },
+      // Remove the old guesses.
+      setTimeout(function() {
+        $('.guess').remove();
+      }, 1000);
+      // Start a new round
+      setTimeout(newRound, 1000);
 
-  'Say it again': function() {
+      score = 0;
+      displayScore();
+    },
+
+    'Say it again': function() {
       sayBackwards($correctButton.text());
     },
+
+    'I think it is *answer': function(answer) {
+
+
+      if (answer === $correctButton.text()) {
+        // Remove all the buttons
+        $('.guess').remove();
+        // Start a new round
+        setTimeout(newRound, 1000);
+        // Add 1 to the score
+        score += 1;
+
+      } else {
+        $('.guess').each(function() {
+          if ($(this).text() === answer.toLowerCase()) {
+            $(this).effect('shake');
+          }
+        });
+
+        sayBackwards($correctButton.text());
+
       }
+      displayScore();
+    },
+  }
 
 
   annyang.addCommands(commands);
