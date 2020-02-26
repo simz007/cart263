@@ -31,13 +31,14 @@ $(document).ready(function() {
   $('#startText').on('click', function() {
     $('.Start').hide();
     $('.game').show();
-
+  // put a timer before the music of game starts to play so we can hear the responsive voice first
     setTimeout(function(){
         gameSFX.play();
+        gameSFX.volume = 0.2;
     }, 8200);
-
-responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
-  });
+    // Computer speach
+    responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+    });
 
 
 
@@ -49,12 +50,13 @@ responsiveVoice.speak("be careful, i would not play if i were you!", "UK English
           console.log("NOOOOO");
           $('.Start').hide();
           $('.game').show();
+            // Computer speach
           responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+          // put a timer before the music of game starts to play so we can hear the responsive voice first
           setTimeout(function(){
               gameSFX.play();
           }, 8200);
-
-
+            gameSFX.volume = 0.2;
 
     },
       };
@@ -72,7 +74,7 @@ responsiveVoice.speak("be careful, i would not play if i were you!", "UK English
 
 
 
-  //Setting up draggable elements
+  //Setting up draggable elements for game1
 
   $(".drag").draggable({
     //contained in window
@@ -81,7 +83,7 @@ responsiveVoice.speak("be careful, i would not play if i were you!", "UK English
 
   });
 
-  //Setting up droppable elements
+  //Setting up droppable elements for game1
 
   $(".drop").droppable({
     //accept the draggables with same num attribute
@@ -112,9 +114,10 @@ responsiveVoice.speak("be careful, i would not play if i were you!", "UK English
         setTimeout(function(){
           responsiveVoice.speak("Since you started, now go to the next round", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
         }, 3500);
-
+        $('.imageOne').show();
         gameSFX.loop = false;
         gameSFX.pause();
+
         // Open the dialog box
         $("#dialog").dialog({
           modal: true,
@@ -124,6 +127,7 @@ responsiveVoice.speak("be careful, i would not play if i were you!", "UK English
           buttons: {
             next: function() {
         $(this).dialog('close');
+          $('.game').hide();
 
          }
         }

@@ -233,3 +233,13 @@ background-color: red;
 color: white;
 
 }
+
+.imageOne{
+  width:500px;
+  height: 500px;
+  display: none;
+  z-index: 999;
+  position: absolute;
+
+
+}
