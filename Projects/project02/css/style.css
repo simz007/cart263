@@ -1,32 +1,26 @@
 /*********************************************
 Style Sheet CSS
 **********************************************/
-
-
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap');
 
-
-html,body{
-
+html, body {
   /* background: url(../assets/images/back.jpg);
   background-size: cover; */
   padding: 0px;
   margin: 0px;
   overflow: hidden;
   height: 100%
-
 }
 
-.Start{
-height: 100%;
-background: url(../assets/images/back.jpg);
-background-size: cover;
-
+.Start {
+  height: 100%;
+  background: url(../assets/images/back.jpg);
+  background-size: cover;
 }
 
-#title{
+#title {
   color: grey;
-  width:800px;
+  width: 800px;
   margin-top: 100px;
   margin-bottom: 10px;
   font-size: 70px;
@@ -36,20 +30,19 @@ background-size: cover;
   display: inline-block;
 }
 
-#gameOneText{
+#gameOneText {
   font-size: 30px;
   font-family: 'Bowlby One SC', cursive;
   line-height: 1;
   margin-left: 70px;
   padding-top: 20px;
   font-weight: 50;
-
 }
 
 .gameIntro {
-  width:500px;
+  width: 500px;
   margin-left: auto;
- margin-right: auto;
+  margin-right: auto;
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 25px;
@@ -57,13 +50,11 @@ background-size: cover;
   font-weight: 50;
   line-height: 1.2;
   color: white;
-
-
 }
 
-#image{
+#image {
   float: left;
-  width:500px;
+  width: 500px;
   height: 500px;
   margin-top: 100px;
   margin-bottom: 50px;
@@ -71,15 +62,11 @@ background-size: cover;
   font-size: 30px;
 }
 
-
-
-
-.introduction{
-text-align: center;
-
+.introduction {
+  text-align: center;
 }
 
-.game{
+.game {
   display: none;
   background: url(../assets/images/hills.png);
   background-size: cover;
@@ -87,17 +74,15 @@ text-align: center;
   width: 100%;
 }
 
-
 .startButton {
-
   font-size: 30px;
   width: 500px;
   text-align: center;
   display: inline-block;
 }
 
-#startText{
-  background-color:grey;
+#startText {
+  background-color: grey;
   margin: 20px auto;
   border: solid 10px black;
   text-align: center;
@@ -106,24 +91,23 @@ text-align: center;
   font-weight: 100;
 }
 
-
-h1{
+h1 {
   margin: 0px;
 }
 
-.left{
+.left {
   width: 50%;
   height: 100%;
   float: left;
 }
 
-.right{
+.right {
   width: 50%;
   height: 100%;
   float: right;
 }
 
-#leftText{
+#leftText {
   margin-left: 8%;
   margin-top: 10%;
   font-size: 40px;
@@ -133,113 +117,106 @@ h1{
   font-weight: 300;
 }
 
-.draggables{
+.draggables {
   /* float: left; */
-  width:500px;
+  width: 500px;
   height: 500px;
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: 10%;
-  background-color:rgba(0,0,0,0.2); ;
+  background-color: rgba(0, 0, 0, 0.2);
+  ;
   display: flex;
   flex-wrap: wrap;
 }
 
-#draggable1{
-width: 250px;
-height:250px;
-background-color: yellow;
+#draggable1 {
+  width: 250px;
+  height: 250px;
+  background-color: yellow;
 }
 
-#draggable2{
-width: 250px;
-height:250px;
-background-color: green;
+#draggable2 {
+  width: 250px;
+  height: 250px;
+  background-color: green;
 }
 
-#draggable3{
-width: 250px;
-height:250px;
-background-color: blue;
+#draggable3 {
+  width: 250px;
+  height: 250px;
+  background-color: blue;
 }
 
-#draggable4{
-width: 250px;
-height:250px;
-background-color: yellow;
+#draggable4 {
+  width: 250px;
+  height: 250px;
+  background-color: yellow;
 }
 
-.droppables{
+.droppables {
   /* float: left; */
-  width:500px;
+  width: 500px;
   height: 500px;
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: 10%;
-  background-color:rgba(0,0,0,0.2); ;
+  background-color: rgba(0, 0, 0, 0.2);
+  ;
   display: flex;
   flex-wrap: wrap;
-
   border: solid 1px black;
 }
 
-
-#droppable1{
-width: 250px;
-height:250px;
-font-size: 60px;
-text-align: center;
-font-family: 'Bowlby One SC', cursive;
-font-weight: 300;
-align-items: center;
-
+#droppable1 {
+  width: 250px;
+  height: 250px;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  font-weight: 300;
+  align-items: center;
 }
 
-#droppable2{
-width: 250px;
-height:250px;
-font-size: 60px;
-text-align: center;
-font-family: 'Bowlby One SC', cursive;
-font-weight: 300;
-
+#droppable2 {
+  width: 250px;
+  height: 250px;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  font-weight: 300;
 }
 
-#droppable3{
-width: 250px;
-height:250px;
-font-size: 60px;
-text-align: center;
-font-family: 'Bowlby One SC', cursive;
-font-weight: 300;
-
+#droppable3 {
+  width: 250px;
+  height: 250px;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  font-weight: 300;
 }
 
-#droppable4{
-width: 250px;
-height:250px;
-font-size: 60px;
-text-align: center;
-font-family: 'Bowlby One SC', cursive;
-font-weight: 300;
-
+#droppable4 {
+  width: 250px;
+  height: 250px;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  font-weight: 300;
 }
 
-
-#dialog{
-display: none;
-font-size: 30px;
-background-color: red;
-color: white;
-
+#dialog {
+  display: none;
+  font-size: 30px;
+  background-color: red;
+  color: white;
 }
 
-.imageOne{
-  width:500px;
+.imageOne {
+  width: 500px;
   height: 500px;
   display: none;
   z-index: 999;
   position: absolute;
-
-
+  background-color: grey;
 }

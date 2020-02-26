@@ -31,40 +31,48 @@ $(document).ready(function() {
   $('#startText').on('click', function() {
     $('.Start').hide();
     $('.game').show();
-  // put a timer before the music of game starts to play so we can hear the responsive voice first
-    setTimeout(function(){
-        gameSFX.play();
-        gameSFX.volume = 0.2;
+    // put a timer before the music of game starts to play so we can hear the responsive voice first
+    setTimeout(function() {
+      gameSFX.play();
+      gameSFX.volume = 0.2;
     }, 8200);
     // Computer speach
-    responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+    responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
+      rate: 0.2,
+      pitch: 0.1,
+      volume: 0.8
     });
+  });
 
 
 
   // Annyang function
   if (annyang) {
-      // Let's define our first command. First the text we expect, and then the function it should call
-      var commands = {
-        'start': function() {
-          console.log("NOOOOO");
-          $('.Start').hide();
-          $('.game').show();
-            // Computer speach
-          responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
-          // put a timer before the music of game starts to play so we can hear the responsive voice first
-          setTimeout(function(){
-              gameSFX.play();
-          }, 8200);
-            gameSFX.volume = 0.2;
+    // Let's define our first command. First the text we expect, and then the function it should call
+    var commands = {
+      'start': function() {
+        console.log("NOOOOO");
+        $('.Start').hide();
+        $('.game').show();
+        // Computer speach
+        responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
+          rate: 0.2,
+          pitch: 0.1,
+          volume: 0.8
+        });
+        // put a timer before the music of game starts to play so we can hear the responsive voice first
+        setTimeout(function() {
+          gameSFX.play();
+        }, 8200);
+        gameSFX.volume = 0.2;
 
-    },
-      };
-      // Add our commands to annyang
-      annyang.addCommands(commands);
+      },
+    };
+    // Add our commands to annyang
+    annyang.addCommands(commands);
 
-      // Start listening. You can call this here, or attach this call to an event, button, etc.
-      annyang.start();
+    // Start listening. You can call this here, or attach this call to an event, button, etc.
+    annyang.start();
   }
 
 
@@ -111,8 +119,12 @@ $(document).ready(function() {
       if (dropNum === 4) {
 
         kidSFX.play();
-        setTimeout(function(){
-          responsiveVoice.speak("Since you started, now go to the next round", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+        setTimeout(function() {
+          responsiveVoice.speak("Since you started, now go to the next round", "UK English Male", {
+            rate: 0.2,
+            pitch: 0.1,
+            volume: 0.8
+          });
         }, 3500);
         $('.imageOne').show();
         gameSFX.loop = false;
@@ -126,12 +138,12 @@ $(document).ready(function() {
 
           buttons: {
             next: function() {
-        $(this).dialog('close');
-          $('.game').hide();
+              $(this).dialog('close');
+              $('.game').hide();
 
-         }
-        }
-      });
+            }
+          }
+        });
       }
     }
 
