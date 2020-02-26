@@ -24,11 +24,19 @@ $(document).ready(function() {
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
 
+
+
+
   //Hide Start screen, and show game screen on button click, and play the music
   $('#startText').on('click', function() {
     $('.Start').hide();
     $('.game').show();
-    gameSFX.play();
+
+    setTimeout(function(){
+        gameSFX.play();
+    }, 8200);
+
+responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
   });
 
 
@@ -39,9 +47,14 @@ $(document).ready(function() {
       var commands = {
         'start': function() {
           console.log("NOOOOO");
-          gameSFX.play();
           $('.Start').hide();
           $('.game').show();
+          responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+          setTimeout(function(){
+              gameSFX.play();
+          }, 8200);
+
+
 
     },
       };
@@ -96,7 +109,11 @@ $(document).ready(function() {
       if (dropNum === 4) {
 
         kidSFX.play();
-        // gameSFX.loop = false;
+        setTimeout(function(){
+          responsiveVoice.speak("Since you started, now go to the next round", "UK English Male",{rate: 0.2, pitch:0.1, volume:0.8});
+        }, 3500);
+
+        gameSFX.loop = false;
         gameSFX.pause();
         // Open the dialog box
         $("#dialog").dialog({
@@ -115,11 +132,5 @@ $(document).ready(function() {
     }
 
   });
-
-
-
-
-
-
 
 });
