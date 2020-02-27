@@ -7,6 +7,7 @@ my first project
 
 let dropNum = 0
 let dropNumtwo = 0
+let dropNumthree = 0
 
 //audio variables
 let gameSFX;
@@ -14,6 +15,7 @@ let gametwoSFX;
 let gamethreeSFX;
 let kidSFX;
 let clownSFX;
+let screamSFX;
 
 
 
@@ -34,6 +36,7 @@ $(document).ready(function() {
 
   kidSFX = new Audio('assets/sounds/kids.mp3');
   clownSFX = new Audio('assets/sounds/clown.mp3');
+  screamSFX = new Audio('assets/sounds/scream.mp3');
 
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
@@ -303,7 +306,7 @@ $(document).ready(function() {
 
               // put a timer before the music of game starts to play so we can hear the responsive voice first
               setTimeout(function() {
-                gametwoSFX.play();
+                gamethreeSFX.play();
               }, 3000);
               gamethreeSFX.volume = 0.2;
             }
@@ -317,6 +320,66 @@ $(document).ready(function() {
 
   // End of game Two
 
+
+  //Setting up draggable elements for game Three
+
+  $(".dragThree").draggable({
+    //contained in window
+    containment: "window",
+    revert: 'invalid',
+
+  });
+
+  // Setting up droppable elements for game Three
+
+  $(".dropThree").droppable({
+    //accept the draggables with same num attribute
+    accept: function(item) {
+      return $(this).attr('num') === item.attr('num');
+    },
+    //called when the appropriate draggable has been received
+    drop: function(event, ui) {
+
+      //disable draggable so u cant drag it after it's dropped in appropriate droppable
+      ui.draggable.draggable("disable");
+
+      //put the draggable in the center of droppable
+      ui.draggable.position({
+        my: "center",
+        at: "center",
+        of: $(this)
+      });
+
+      // keep track of how many draggables got droppedand add 1 each time
+      dropNumthree += 1;
+
+      //tracks the number of droppables and once it gets to 4
+      // show the dialog box
+      if (dropNumthree === 4) {
+
+        gamethreeSFX.pause();
+        gamethreeSFX.loop = false;
+
+        screamSFX.play();
+        setTimeout(function() {
+          responsiveVoice.speak("can you handle the last round?", "UK English Male", {
+            rate: 0.2,
+            pitch: 0.1,
+            volume: 0.8
+          });
+        }, 4800);
+
+
+        //Hide game three screen
+          $('.gameThree').hide();
+          $('.final').show();
+
+
+
+      }
+    }
+
+  });
 
 
 
