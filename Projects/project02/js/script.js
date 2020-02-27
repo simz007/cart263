@@ -16,6 +16,7 @@ let gamethreeSFX;
 let kidSFX;
 let clownSFX;
 let screamSFX;
+let staticSFX;
 
 
 
@@ -34,9 +35,11 @@ $(document).ready(function() {
   gamethreeSFX.loop = true;
 
 
+
   kidSFX = new Audio('assets/sounds/kids.mp3');
   clownSFX = new Audio('assets/sounds/clown.mp3');
   screamSFX = new Audio('assets/sounds/scream.mp3');
+  staticSFX = new Audio('assets/sounds/static.mp3');
 
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
@@ -50,7 +53,7 @@ $(document).ready(function() {
     $('.game').show();
 
     // Computer speach
-    responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
+    responsiveVoice.speak("I would not play if i were you!", "UK English Male", {
       rate: 0.2,
       pitch: 0.1,
       volume: 0.8
@@ -60,7 +63,7 @@ $(document).ready(function() {
     setTimeout(function() {
       gameSFX.play();
       gameSFX.volume = 0.2;
-    }, 7700);
+    }, 6200);
 
   });
 
@@ -74,7 +77,7 @@ $(document).ready(function() {
         $('.Start').hide();
         $('.game').show();
         // Computer speach
-        responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
+        responsiveVoice.speak("I would not play if i were you!", "UK English Male", {
           rate: 0.2,
           pitch: 0.1,
           volume: 0.8
@@ -83,7 +86,7 @@ $(document).ready(function() {
         // put a timer before the music of game starts to play so we can hear the responsive voice first
         setTimeout(function() {
           gameSFX.play();
-        }, 7700);
+        }, 6200);
         gameSFX.volume = 0.2;
 
       },
@@ -113,7 +116,7 @@ $(document).ready(function() {
 
       },
 
-      'yes': function() {
+      'continue': function() {
         //hide game two
         $('.gameTwo').hide();
         //close the dialog box
@@ -137,6 +140,32 @@ $(document).ready(function() {
         gamethreeSFX.volume = 0.2;
 
       },
+
+      'yes sir': function() {
+
+
+        // Computer speach
+        responsiveVoice.speak("good i see you learned!", "UK English Male", {
+          rate: 0.4,
+          pitch: 0.1,
+          volume: 0.8
+        });
+
+      },
+
+      'no sir': function() {
+
+
+        // Computer speach
+        responsiveVoice.speak("you better hide, i am comming for you!", "UK English Male", {
+          rate: 0.4,
+          pitch: 0.1,
+          volume: 0.8
+        });
+
+      },
+
+
 
     };
     // Add our commands to annyang
@@ -292,11 +321,11 @@ $(document).ready(function() {
           height: 400,
 
           buttons: {
-            Yes: function() {
+            Continue: function() {
               $(this).dialog('close');
               $('.gameTwo').hide();
               $('.imageTwo').hide();
-                $('.gameThree').show();
+              $('.gameThree').show();
               // Computer speach
               responsiveVoice.speak("Welcome to the final round", "UK English Male", {
                 rate: 0.2,
@@ -362,7 +391,7 @@ $(document).ready(function() {
 
         screamSFX.play();
         setTimeout(function() {
-          responsiveVoice.speak("you have reached the end of the internet,now go back to your homeworks,And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place!", "UK English Male", {
+          responsiveVoice.speak("you have reached the end of the internet,now go back to your homeworks,And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place! Did you understand?", "UK English Male", {
             rate: 0.6,
             pitch: 0.1,
             volume: 0.8
@@ -371,24 +400,25 @@ $(document).ready(function() {
 
 
         //Hide game three screen
-          $('.gameThree').hide();
-          $('.final').show();
+        $('.gameThree').hide();
+        $('.final').show();
 
-          // Call the typeWriter function
-          setTimeout(function() {
-            typeWriter();
-          },4000);
+        // Play static sound
+        setTimeout(function() {
+            staticSFX.play();
+        },4000);
 
+        staticSFX.volume = 0.1 ;
 
+        // Call the typeWriter function
+        setTimeout(function() {
+          typeWriter();
+        }, 4000);
 
       }
     }
 
   });
-
-
-
-
 
 });
 
@@ -396,7 +426,7 @@ $(document).ready(function() {
 //create a typeriter function that will ype the text at the end of the game on the final screen
 
 var i = 0;
-var txt = 'you have reached the end of the internet,now go back to your homeworks! And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place!';
+var txt = 'you have reached the end of the internet,now go back to your homeworks! And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place! Did you understand? say: yes sir or no sir. ';
 var speed = 100;
 
 function typeWriter() {
