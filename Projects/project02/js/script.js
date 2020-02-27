@@ -11,6 +11,7 @@ let dropNumtwo = 0
 //audio variables
 let gameSFX;
 let gametwoSFX;
+let gamethreeSFX;
 let kidSFX;
 let clownSFX;
 
@@ -25,6 +26,10 @@ $(document).ready(function() {
   // adding audio files for game Two and looping it
   gametwoSFX = new Audio('assets/sounds/game2.mp3');
   gametwoSFX.loop = true;
+
+  // adding audio files for game Three and looping it
+  gamethreeSFX = new Audio('assets/sounds/game3.mp3');
+  gamethreeSFX.loop = true;
 
 
   kidSFX = new Audio('assets/sounds/kids.mp3');
@@ -124,9 +129,9 @@ $(document).ready(function() {
 
         // put a timer before the music of game starts to play so we can hear the responsive voice first
         setTimeout(function() {
-          gametwoSFX.play();
+          gamethreeSFX.play();
         }, 3000);
-        gametwoSFX.volume = 0.2;
+        gamethreeSFX.volume = 0.2;
 
       },
 
@@ -300,7 +305,7 @@ $(document).ready(function() {
               setTimeout(function() {
                 gametwoSFX.play();
               }, 3000);
-              gametwoSFX.volume = 0.2;
+              gamethreeSFX.volume = 0.2;
             }
           }
         });
