@@ -31,17 +31,20 @@ $(document).ready(function() {
   $('#startText').on('click', function() {
     $('.Start').hide();
     $('.game').show();
-    // put a timer before the music of game starts to play so we can hear the responsive voice first
-    setTimeout(function() {
-      gameSFX.play();
-      gameSFX.volume = 0.2;
-    }, 8200);
+
     // Computer speach
     responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
       rate: 0.2,
       pitch: 0.1,
       volume: 0.8
     });
+
+    // put a timer before the music of game starts to play so we can hear the responsive voice first
+    setTimeout(function() {
+      gameSFX.play();
+      gameSFX.volume = 0.2;
+    }, 8200);
+
   });
 
 
@@ -51,7 +54,7 @@ $(document).ready(function() {
     // Let's define our first command. First the text we expect, and then the function it should call
     var commands = {
       'start': function() {
-        console.log("NOOOOO");
+
         $('.Start').hide();
         $('.game').show();
         // Computer speach
@@ -60,6 +63,7 @@ $(document).ready(function() {
           pitch: 0.1,
           volume: 0.8
         });
+
         // put a timer before the music of game starts to play so we can hear the responsive voice first
         setTimeout(function() {
           gameSFX.play();
@@ -67,6 +71,23 @@ $(document).ready(function() {
         gameSFX.volume = 0.2;
 
       },
+
+      'go': function() {
+
+        $('.game').hide();
+
+        $('#dialog').dialog('close');
+
+        // Computer speach
+        responsiveVoice.speak("be careful, i would not play if i were you!", "UK English Male", {
+          rate: 0.2,
+          pitch: 0.1,
+          volume: 0.8
+        });
+
+
+      },
+
     };
     // Add our commands to annyang
     annyang.addCommands(commands);

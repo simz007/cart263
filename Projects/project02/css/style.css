@@ -12,6 +12,10 @@ html, body {
   height: 100%
 }
 
+
+
+
+
 .Start {
   height: 100%;
   background: url(../assets/images/back.jpg);
@@ -208,15 +212,15 @@ h1 {
 #dialog {
   display: none;
   font-size: 30px;
-  background-color: red;
+  background-color: black;
   color: white;
 }
 
 .imageOne {
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   display: none;
   z-index: 999;
   position: absolute;
-  background-color: grey;
+  background-color: none;
 }
