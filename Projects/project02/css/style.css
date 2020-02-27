@@ -96,6 +96,14 @@ html, body {
   width: 100%;
 }
 
+.gameThree {
+  display: none;
+  background: url(../assets/images/backthree.jpg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
 .startButton {
   font-size: 30px;
   width: 500px;
@@ -245,7 +253,24 @@ h1 {
   color: white;
 }
 
+#dialogTwo {
+  display: none;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+}
+
 .imageOne {
+  width: 300px;
+  height: 300px;
+  display: none;
+  z-index: 999;
+  position: absolute;
+  background-color: none;
+
+}
+
+.imageTwo {
   width: 300px;
   height: 300px;
   display: none;

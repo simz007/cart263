@@ -6,11 +6,13 @@ my first project
 ******************/
 
 let dropNum = 0
+let dropNumtwo = 0
 
 //audio variables
 let gameSFX;
 let gametwoSFX;
 let kidSFX;
+let clownSFX;
 
 
 
@@ -25,9 +27,8 @@ $(document).ready(function() {
   gametwoSFX.loop = true;
 
 
-
-
   kidSFX = new Audio('assets/sounds/kids.mp3');
+  clownSFX = new Audio('assets/sounds/clown.mp3');
 
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
@@ -51,7 +52,7 @@ $(document).ready(function() {
     setTimeout(function() {
       gameSFX.play();
       gameSFX.volume = 0.2;
-    }, 8200);
+    }, 7700);
 
   });
 
@@ -62,7 +63,6 @@ $(document).ready(function() {
     // Let's define our first command. First the text we expect, and then the function it should call
     var commands = {
       'start': function() {
-
         $('.Start').hide();
         $('.game').show();
         // Computer speach
@@ -75,7 +75,7 @@ $(document).ready(function() {
         // put a timer before the music of game starts to play so we can hear the responsive voice first
         setTimeout(function() {
           gameSFX.play();
-        }, 8200);
+        }, 7700);
         gameSFX.volume = 0.2;
 
       },
@@ -102,7 +102,6 @@ $(document).ready(function() {
           gametwoSFX.play();
         }, 2600);
         gametwoSFX.volume = 0.2;
-
 
       },
 
@@ -195,14 +194,11 @@ $(document).ready(function() {
                 gametwoSFX.play();
               }, 2600);
               gametwoSFX.volume = 0.2;
-
-
             }
           }
         });
       }
     }
-
   });
 
   // End of game one
@@ -238,24 +234,51 @@ $(document).ready(function() {
       });
 
       // keep track of how many draggables got droppedand add 1 each time
-      dropNum += 1;
+      dropNumtwo += 1;
 
       //tracks the number of droppables and once it gets to 4
       // show the dialog box
-      if (dropNum === 4) {
+      if (dropNumtwo === 4) {
 
-        kidSFX.play();
+        clownSFX.play();
         setTimeout(function() {
-          responsiveVoice.speak("Since you started, now go to the next round", "UK English Male", {
+          responsiveVoice.speak("can you handle the last round?", "UK English Male", {
             rate: 0.2,
             pitch: 0.1,
             volume: 0.8
           });
-        }, 3500);
-        $('.imageOne').show();
-        gameSFX.loop = false;
-        gameSFX.pause();
+        }, 4800);
+        $('.imageTwo').show();
+        gametwoSFX.loop = false;
+        gametwoSFX.pause();
 
+        // Open the dialog box
+        $("#dialogTwo").dialog({
+          modal: true,
+          width: 400,
+          height: 400,
+
+          buttons: {
+            Yes: function() {
+              $(this).dialog('close');
+              $('.gameTwo').hide();
+              $('.imageTwo').hide();
+                $('.gameThree').show();
+              // Computer speach
+              responsiveVoice.speak("Welcome to the final round", "UK English Male", {
+                rate: 0.2,
+                pitch: 0.1,
+                volume: 0.8
+              });
+
+              // put a timer before the music of game starts to play so we can hear the responsive voice first
+              setTimeout(function() {
+                gametwoSFX.play();
+              }, 3000);
+              gametwoSFX.volume = 0.2;
+            }
+          }
+        });
 
       }
     }
