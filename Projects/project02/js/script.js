@@ -105,6 +105,31 @@ $(document).ready(function() {
 
       },
 
+      'yes': function() {
+        //hide game two
+        $('.gameTwo').hide();
+        //close the dialog box
+        $('#dialogTwo').dialog('close');
+        //show game three
+        $('.gameThree').show();
+        //Hide clown image
+        $('.imageTwo').hide();
+
+        // Computer speach
+        responsiveVoice.speak("Welcome to the final round", "UK English Male", {
+          rate: 0.2,
+          pitch: 0.1,
+          volume: 0.8
+        });
+
+        // put a timer before the music of game starts to play so we can hear the responsive voice first
+        setTimeout(function() {
+          gametwoSFX.play();
+        }, 3000);
+        gametwoSFX.volume = 0.2;
+
+      },
+
     };
     // Add our commands to annyang
     annyang.addCommands(commands);
