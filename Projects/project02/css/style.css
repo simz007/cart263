@@ -78,7 +78,7 @@ html, body {
 
 
 .gameFinal {
-  width: 500px;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 100px;
@@ -87,6 +87,7 @@ html, body {
   font-weight: 50;
   line-height: 1.2;
   color: white;
+
 }
 
 

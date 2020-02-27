@@ -362,17 +362,22 @@ $(document).ready(function() {
 
         screamSFX.play();
         setTimeout(function() {
-          responsiveVoice.speak("can you handle the last round?", "UK English Male", {
-            rate: 0.2,
+          responsiveVoice.speak("you have reached the end of the internet,now go back to your homeworks,And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place!", "UK English Male", {
+            rate: 0.6,
             pitch: 0.1,
             volume: 0.8
           });
-        }, 4800);
+        }, 4000);
 
 
         //Hide game three screen
           $('.gameThree').hide();
           $('.final').show();
+
+          // Call the typeWriter function
+          setTimeout(function() {
+            typeWriter();
+          },4000);
 
 
 
@@ -386,3 +391,18 @@ $(document).ready(function() {
 
 
 });
+
+
+//create a typeriter function that will ype the text at the end of the game on the final screen
+
+var i = 0;
+var txt = 'you have reached the end of the internet,now go back to your homeworks! And if i catch you playing again this time i will hunt you down for real, i hope you learned your lesson that the internet can be a very dangerous place!';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
