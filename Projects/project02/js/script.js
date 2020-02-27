@@ -9,15 +9,23 @@ let dropNum = 0
 
 //audio variables
 let gameSFX;
+let gametwoSFX;
 let kidSFX;
 
 
 
 $(document).ready(function() {
 
-  // adding audio files and looping it
+  // adding audio files for game One and looping it
   gameSFX = new Audio('assets/sounds/game1.mp3');
   gameSFX.loop = true;
+
+  // adding audio files for game Two and looping it
+  gametwoSFX = new Audio('assets/sounds/game2.mp3');
+  gametwoSFX.loop = true;
+
+
+
 
   kidSFX = new Audio('assets/sounds/kids.mp3');
 
@@ -88,6 +96,12 @@ $(document).ready(function() {
           pitch: 0.1,
           volume: 0.8
         });
+
+        // put a timer before the music of game starts to play so we can hear the responsive voice first
+        setTimeout(function() {
+          gametwoSFX.play();
+        }, 2600);
+        gametwoSFX.volume = 0.2;
 
 
       },
@@ -164,7 +178,7 @@ $(document).ready(function() {
           height: 400,
 
           buttons: {
-            next: function() {
+            go: function() {
               $(this).dialog('close');
               $('.game').hide();
               $('.gameTwo').show();
@@ -175,6 +189,13 @@ $(document).ready(function() {
                 pitch: 0.1,
                 volume: 0.8
               });
+
+              // put a timer before the music of game starts to play so we can hear the responsive voice first
+              setTimeout(function() {
+                gametwoSFX.play();
+              }, 2600);
+              gametwoSFX.volume = 0.2;
+
 
             }
           }
