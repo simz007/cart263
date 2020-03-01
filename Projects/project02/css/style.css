@@ -13,12 +13,32 @@ html, body {
 }
 
 
+video#bgvid {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	background-size: cover;
+
+}
 
 
+
+.introText{
+
+background-color: rgba(0, 0, 0, 0.5);
+
+}
 
 .Start {
   height: 100%;
-  background: url(../assets/images/back.jpg);
+
+  background: url(../assets/images/scary.mp4) no-repeat center center;
   background-size: cover;
 }
 

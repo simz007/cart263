@@ -22,6 +22,8 @@ let staticSFX;
 
 $(document).ready(function() {
 
+  // putting the video in variable to be able to pause it after game start
+  let video = document.getElementById("bgvid");
   // adding audio files for game One and looping it
   gameSFX = new Audio('assets/sounds/game1.mp3');
   gameSFX.loop = true;
@@ -51,6 +53,7 @@ $(document).ready(function() {
   $('#startText').on('click', function() {
     $('.Start').hide();
     $('.game').show();
+    video.pause();
 
     // Computer speach
     responsiveVoice.speak("I would not play if i were you!", "UK English Male", {
@@ -76,6 +79,7 @@ $(document).ready(function() {
       'start': function() {
         $('.Start').hide();
         $('.game').show();
+        video.pause();
         // Computer speach
         responsiveVoice.speak("I would not play if i were you!", "UK English Male", {
           rate: 0.2,
@@ -142,8 +146,6 @@ $(document).ready(function() {
       },
 
       'yes sir': function() {
-
-
         // Computer speach
         responsiveVoice.speak("good i see you learned!", "UK English Male", {
           rate: 0.4,
@@ -154,8 +156,6 @@ $(document).ready(function() {
       },
 
       'no sir': function() {
-
-
         // Computer speach
         responsiveVoice.speak("you better hide, i am comming for you!", "UK English Male", {
           rate: 0.4,
