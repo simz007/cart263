@@ -104,6 +104,8 @@ $(document).ready(function() {
         $('.gameTwo').show();
         //Hide clown image
         $('.imageOne').hide();
+        //Hide pig1 image
+        $('.imagePig').hide();
 
         // Computer speach
         responsiveVoice.speak("Are you scared yet?", "UK English Male", {
@@ -228,6 +230,12 @@ $(document).ready(function() {
         }, 3500);
         // show the clown image
         $('.imageOne').show();
+        //animate the image
+        animateDiv('.imageOne');
+        // show the pig1 image
+        $('.imagePig').show();
+        //animate the image
+        animateDiv('.imagePig');
         //Stop the game music
         gameSFX.loop = false;
         gameSFX.pause();
@@ -244,6 +252,7 @@ $(document).ready(function() {
               $('.game').hide();
               $('.gameTwo').show();
               $('.imageOne').hide();
+              $('.imagePig').hide();
               // Computer speach
               responsiveVoice.speak("Are you scared yet?", "UK English Male", {
                 rate: 0.2,
@@ -310,7 +319,10 @@ $(document).ready(function() {
             volume: 0.8
           });
         }, 4800);
+        // show the clown image
         $('.imageTwo').show();
+        //animate the image
+        animateDiv('.imageTwo');
         gametwoSFX.loop = false;
         gametwoSFX.pause();
 
@@ -436,3 +448,27 @@ function typeWriter() {
     setTimeout(typeWriter, speed);
   }
 }
+
+
+
+// function to change the position of the clown image after winning each round Found help on source: codepen
+function makeNewPosition(){
+
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
+
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+
+    return [nh,nw];
+
+}
+// Animate the div of the image
+function animateDiv(myclass){
+    var newq = makeNewPosition();
+    $(myclass).animate({ top: newq[0], left: newq[1] }, 1000,   function(){
+      animateDiv(myclass);
+    });
+
+};
