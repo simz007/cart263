@@ -106,6 +106,8 @@ $(document).ready(function() {
         $('.imageOne').hide();
         //Hide pig1 image
         $('.imagePig').hide();
+        //Hide pig2 image
+        $('.imagePigTwo').hide();
 
         // Computer speach
         responsiveVoice.speak("Are you scared yet?", "UK English Male", {
@@ -129,8 +131,12 @@ $(document).ready(function() {
         $('#dialogTwo').dialog('close');
         //show game three
         $('.gameThree').show();
-        //Hide clown image
+        //Hide scary 1 image
         $('.imageTwo').hide();
+        //Hide scary 2 image
+        $('.imagescary').hide();
+        //Hide scary 3 image
+        $('.imagescaryTwo').hide();
 
         // Computer speach
         responsiveVoice.speak("Welcome to the final round", "UK English Male", {
@@ -236,6 +242,10 @@ $(document).ready(function() {
         $('.imagePig').show();
         //animate the image
         animateDiv('.imagePig');
+        // show the pig2 image
+        $('.imagePigTwo').show();
+        //animate the image
+        animateDiv('.imagePigTwo');
         //Stop the game music
         gameSFX.loop = false;
         gameSFX.pause();
@@ -253,6 +263,7 @@ $(document).ready(function() {
               $('.gameTwo').show();
               $('.imageOne').hide();
               $('.imagePig').hide();
+              $('.imagePigTwo').hide();
               // Computer speach
               responsiveVoice.speak("Are you scared yet?", "UK English Male", {
                 rate: 0.2,
@@ -319,10 +330,18 @@ $(document).ready(function() {
             volume: 0.8
           });
         }, 4800);
-        // show the clown image
+        // show the scary 1 image
         $('.imageTwo').show();
         //animate the image
         animateDiv('.imageTwo');
+        // show the scary 2 image
+        $('.imagescary').show();
+        //animate the image
+        animateDiv('.imagescary');
+        // show the scary 3 image
+        $('.imagescaryTwo').show();
+        //animate the image
+        animateDiv('.imagescaryTwo');
         gametwoSFX.loop = false;
         gametwoSFX.pause();
 
@@ -337,6 +356,8 @@ $(document).ready(function() {
               $(this).dialog('close');
               $('.gameTwo').hide();
               $('.imageTwo').hide();
+              $('.imagescary').hide();
+              $('.imagescaryTwo').hide();
               $('.gameThree').show();
               // Computer speach
               responsiveVoice.speak("Welcome to the final round", "UK English Male", {
