@@ -19,7 +19,6 @@ let screamSFX;
 let staticSFX;
 
 
-
 $(document).ready(function() {
 
   // putting the video in variable to be able to pause it after game start
@@ -170,25 +169,15 @@ $(document).ready(function() {
           pitch: 0.1,
           volume: 0.8
         });
-
       },
-
-
-
     };
+
     // Add our commands to annyang
     annyang.addCommands(commands);
 
     // Start listening. You can call this here, or attach this call to an event, button, etc.
     annyang.start();
   }
-
-
-
-
-
-
-
 
   //Setting up draggable elements for game One
 
@@ -447,13 +436,11 @@ $(document).ready(function() {
         setTimeout(function() {
           typeWriter();
         }, 4000);
-
       }
     }
-
   });
-
 });
+// End of document.ready function
 
 
 //create a typeriter function that will ype the text at the end of the game on the final screen
@@ -469,8 +456,6 @@ function typeWriter() {
     setTimeout(typeWriter, speed);
   }
 }
-
-
 
 // function to change the position of the clown image after winning each round Found help on source: codepen
 function makeNewPosition(){
