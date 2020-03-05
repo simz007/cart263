@@ -35,8 +35,7 @@ $(document).ready(function() {
   gamethreeSFX = new Audio('assets/sounds/game3.mp3');
   gamethreeSFX.loop = true;
 
-
-
+  //loading Other sound variable
   kidSFX = new Audio('assets/sounds/kids.mp3');
   clownSFX = new Audio('assets/sounds/clown.mp3');
   screamSFX = new Audio('assets/sounds/scream.mp3');
@@ -44,9 +43,6 @@ $(document).ready(function() {
 
   //Custom cursor
   $('html').css('cursor', 'url(assets/images/cursor.png),auto');
-
-
-
 
   //Hide Start screen, and show game screen on button click, and play the music
   $('#startText').on('click', function() {
@@ -273,7 +269,6 @@ $(document).ready(function() {
   });
 
   // End of game one
-
 
   //Setting up draggable elements for game Two
 
