@@ -41,13 +41,17 @@ console.error(randomCat);
 //get a random room from the room array in Json file
 let randomRoom = getRandomElement(data.rooms);
 console.error(randomRoom);
+
+//get a random game from the game array in Json file
+let randomGame = getRandomElement(data.games);
+console.error(randomGame);
 //get a random color from the condiment array in Json file
 let randomColor = getRandomElement(data.colors);
 console.error(randomColor.color);
 
 
 // Create the string for our phrase with all the random element obtained
-let randomDescription = `${randomCondiment} ${verb} like a ${randomColor.color} ${randomCat}  in a ${randomRoom}`;
+let randomDescription = `${randomCondiment} ${verb} like a ${randomColor.color} ${randomCat}  in a ${randomRoom} playing ${randomGame}`;
 console.error(randomDescription);
 
 $("body").append(`<p>${randomDescription}</p>`);
