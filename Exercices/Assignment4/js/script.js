@@ -15,6 +15,7 @@ $(document).ready(setup);
 
 function setup() {
 
+// Load jSon file
 $.getJSON("assets/data/data.json")
   .done(dataLoaded)
   .fail(dataError)
@@ -24,6 +25,7 @@ $.getJSON("assets/data/data.json")
 
 function dataLoaded(data) {
 console.log(data);
+//get a random condiment from the condiment array in Json file
 let randomCondiment = getRandomElement(data.condiments);
 console.error(randomCondiment);
 
@@ -33,15 +35,19 @@ verb = "are";
 }
 
 console.error(verb);
-
+//get a random cat from the cat array in Json file
 let randomCat = getRandomElement(data.cats);
 console.error(randomCat);
-
+//get a random room from the room array in Json file
 let randomRoom = getRandomElement(data.rooms);
 console.error(randomRoom);
+//get a random color from the condiment array in Json file
+let randomColor = getRandomElement(data.colors);
+console.error(randomColor.color);
 
 
-let randomDescription = `${randomCondiment} ${verb} like a ${randomCat} in a ${randomRoom}`;
+// Create the string for our phrase with all the random element obtained
+let randomDescription = `${randomCondiment} ${verb} like a ${randomColor.color} ${randomCat}  in a ${randomRoom}`;
 console.error(randomDescription);
 
 $("body").append(`<p>${randomDescription}</p>`);
