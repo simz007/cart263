@@ -49,9 +49,15 @@ console.error(randomGame);
 let randomColor = getRandomElement(data.colors);
 console.error(randomColor.color);
 
+// check if the first letter of the color is a vowel and change the a to an
+let indefiniteArticle = "a";
+if (randomColor.color.charAt(0) === "A" || randomColor.color.charAt(0) === "E" || randomColor.color.charAt(0) === "I" || randomColor.color.charAt(0) === "O" || randomColor.color.charAt(0) === "U" ||randomColor.color.charAt(0) === "Y"){
+indefiniteArticle = "an";
+}
+
 
 // Create the string for our phrase with all the random element obtained
-let randomDescription = `${randomCondiment} ${verb} like a ${randomColor.color} ${randomCat}  in a ${randomRoom} playing ${randomGame}`;
+let randomDescription = `${randomCondiment} ${verb} like ${indefiniteArticle} ${randomColor.color} ${randomCat}  in a ${randomRoom} playing ${randomGame}`;
 console.error(randomDescription);
 
 $("body").append(`<p>${randomDescription}</p>`);
